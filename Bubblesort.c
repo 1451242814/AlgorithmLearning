@@ -17,7 +17,7 @@ int main(int argc,char *argv[])
 {
 	int len;
 	if(argc==1)
-		len=1000000;
+		len=100000;
 	else if(argc==2)
 		len=atoi(argv[1]);
 	int *array=(int *)malloc(sizeof(int)*len);
