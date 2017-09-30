@@ -17,12 +17,14 @@ public:
 		head->next=NULL;
 		head->data=NULL;
 	}
-\\Insert a node before the num i node
+\\Insert a node after the num i node
 	void insert(int i,char *pdata)
 	{
 		struct Node * p=head;
 		while(i--)
 			p=p->next;
+		if(p=NULL)
+			cerr<<"Index out of range! when inserting!";
 		Node * node=new Node;
 		node->data=pdata;
 		node->next=p->next;
