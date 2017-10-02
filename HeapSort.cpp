@@ -16,9 +16,9 @@ inline int right(int i)
 void maxHeapfiy(int *array,int i,int len)
 {
     int largest=i;
-    if(array[left(i)]>array[largest]&&left(i)<len)
+    if(left(i)<len&&array[left(i)]>array[largest])
         largest=left(i);
-    if(array[right(i)]>array[largest]&&right(i)<len)
+    if(right(i)<len&&array[right(i)]>array[largest])
         largest=right(i);
     if(largest!=i)
     {
@@ -36,8 +36,14 @@ void buildHeap(int *array,int n)
 }
 void heapSort(int *array,int len)
 {
-    for(int i=0;i<len-2;i++)
-        buildHeap(array+i,len-i);
+    while(len>1)
+	{
+        maxHeapfiy(array,0,len);
+		int t=array[0];
+		array[0]=array[len-1];
+		array[len-1]=t;
+		len--;
+	}
 }
 
 };
